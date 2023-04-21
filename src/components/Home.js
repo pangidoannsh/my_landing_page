@@ -1,10 +1,17 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
-import HeroBackground from "./HeroBackground";
 import NavMenu from "./NavMenu";
 import { Transition } from "@headlessui/react";
+import Hero from "./Hero";
+import Portfolio from "./contents/Portfolio";
+import ScrollAnimationIcon from "./ScrollAnimationIcon";
+import Footer from "./Footer";
+import BottomBar from "./BottomBar";
+// import Footer from "./Footer";
 
 export default function Home() {
+    const portfolioRef = useRef(null);
+
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [scrollY, setscrollY] = useState(0);
 
@@ -12,13 +19,13 @@ export default function Home() {
         setIsOpenMenu((prev) => !prev);
     }
     function handleScroll(e) {
-        setscrollY(window.scrollY)
+        setscrollY(window.scrollY);
     }
 
     let isMounted = false;
     useEffect(() => {
         if (!isMounted) {
-            window.addEventListener("scroll", handleScroll)
+            window.addEventListener("scroll", handleScroll);
         }
         return () => {
             isMounted = true
@@ -27,50 +34,34 @@ export default function Home() {
 
     return (
         <>
-            <HeroBackground isOpenMenu={isOpenMenu} scrollY={scrollY} />
+            <ScrollAnimationIcon onClick={() => portfolioRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                show={scrollY < 100 && !isOpenMenu} />
             <Navbar isOpenMenu={isOpenMenu} handleClickMenu={handleClickMenu} />
+            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} />
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
-            {/* <div className="h-[120px]">
+            <div className={`fixed -z-10 inset-0 duration-500 ${scrollY > 200 ? 'bg-black' : ''}`} />
+            <div className="h-[50vh]"></div>
+            <div className={`relative min-h-screen ${scrollY > 50 ? 'z-10' : '-z-30'}`}>
                 <Transition appear as={Fragment} show={!isOpenMenu}>
-                    <Transition.Child
-                        as='div'
-                        enter="ease-out duration-[400ms] delay-500"
-                        enterFrom="opacity-0 translate-y-40"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-300"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0 -translate-y-40"
-                        className={`z-10 flex flex-col justify-center items-center h-screen text-white `}
-                        style={{
-                            translate: scrollY > 50 ? `0 ${scrollY / 1.5}px` : '0 0',
-                            opacity: scrollY > 50 ? isOpenMenu ? '0' : `${(window.innerHeight - scrollY) / window.innerHeight}` : '',
-                        }}
-                    >
-                        <div className="text-center text-5xl font-semibold w-1/2">
-                            The best way to predict the future is to create it.
-                        </div>
-                        <div className="opacity-80 font-roboto font-light">Pangidoan Nsh | Frontend Developer</div>
-                    </Transition.Child>
-
-                </Transition>
-            </div>
-            <Transition appear as='div' show={scrollY > 200}>
-                <Transition.Child
-                    as='div'
-                    enter="ease-out duration-[400ms] delay-500"
-                    enterFrom="opacity-0 translate-y-40"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0 -translate-y-40"
-                    className={`text-white relative`}
-                >
-                    <div className={`text-center text-5xl duration-500 font-semibold 
-                        ${!isOpenMenu ? 'opacity-100' : 'opacity-0 '}`}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reprehenderit repellat quisquam.
+                    <div className={`pt-52`}>
+                        <Transition.Child
+                            as='div'
+                            enter="ease-out duration-[400ms] delay-500"
+                            enterFrom="opacity-0 translate-y-40"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-300"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0 -translate-y-40"
+                            className={`text-white relative`}
+                        >
+                            <Portfolio refrence={portfolioRef} />
+                        </Transition.Child>
                     </div>
-                </Transition.Child>
-            </Transition> */}
+                </Transition>
+                <Footer show={!isOpenMenu} />
+            </div>
+            <BottomBar show={scrollY > 500 && !isOpenMenu}
+                handleScrollUp={() => { portfolioRef.current?.scrollIntoView({ behavior: 'smooth' }); console.log('t'); }} />
         </>
     )
 }
