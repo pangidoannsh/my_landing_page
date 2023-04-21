@@ -19,16 +19,6 @@ export default function Hero({ isOpenMenu, scrollY }) {
             })
         }
     }
-
-    // let isMounted = false;
-    // useEffect(() => {
-    //     if (!isMounted) {
-    //         window.addEventListener('mousemove', handleMouseMove);
-    //     }
-    //     return () => {
-    //         isMounted = true
-    //     }
-    // }, []);
     return (
         <div onMouseMove={handleMouseMove}>
             <Transition as={Fragment} show={!isOpenMenu && scrollY < 300}>
@@ -56,7 +46,11 @@ export default function Hero({ isOpenMenu, scrollY }) {
                 <div className={`bg-hero`}
                     style={{
                         backgroundImage: `url('${earthBg.src}')`,
-                        transform: `translate3d(${position.x}px,${position.y}px,0px) scale(1.1,1.1)`
+                        // transform: `translate3d(${position.x}px,${position.y}px,0px) scale(1.1,1.1)`,
+                        translate: `${position.x}px ${position.y}px`,
+                        scale: isOpenMenu ? '1.2' : '1.1',
+                        transition: 'scale 1000ms'
+                        // transition: '100ms',
                     }}
                 />
             </div>
