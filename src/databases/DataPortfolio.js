@@ -12,7 +12,7 @@ const DataPortfolio = [
         },
         effort: ['UI Design', 'Dev Frontend', 'Dev Backend'],
         description: `Projek ini merupakan projek selama saya mengikuti program 
-        Magang Bersertifikat Kampus Merdeka di PT. Hadji Kalla,Makassar. Vehicle 
+        Magang Bersertifikat Kampus Merdeka di PT. Hadji Kalla, Makassar. Vehicle 
         Logistics digunakan untuk mengelola dokumentasi logistik mobil di PT. 
         Hadji Kalla`
     },
@@ -70,7 +70,11 @@ const DataPortfolio = [
             name: 'PT. Hadji Kalla',
             logo: '/assets/partner-logo/kalla.png'
         },
-        effort: ['UI Design', 'Dev Frontend', 'Dev Backend']
+        effort: ['UI Design', 'Dev Frontend', 'Dev Backend'],
+        description: `Projek ini merupakan projek selama saya mengikuti program 
+        Magang Bersertifikat Kampus Merdeka di PT. Hadji Kalla, Makassar. MoM 
+        Tracking System digunakan untuk mengelola dokumentasi meeting seluruh Sub-unit Bisnis PT. 
+        Hadji Kalla.`
     },
 ]
 export default DataPortfolio
