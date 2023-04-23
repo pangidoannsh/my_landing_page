@@ -14,7 +14,6 @@ export default function Portfolio({ refrence, setIsOpenDetail }) {
         }, 500)
     }
     useEffect(() => {
-        console.log(window.innerWidth);
         if (window.innerWidth < 400) {
             setIsMobile(true)
         }

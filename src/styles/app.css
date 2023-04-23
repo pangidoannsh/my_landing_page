@@ -23,6 +23,7 @@
     background-size: cover;
     background-position: center center;
     opacity: .6;
+    will-change: transform, scale;
 }
 
 #nav-icon {
