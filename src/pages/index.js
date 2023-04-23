@@ -1,9 +1,5 @@
 import Home from "@/components/Home";
-import Layout from "@/components/Layout";
 import Head from "next/head";
-import earthBg from '@/assets/images/EarthRender.png'
-import Portfolio from "@/components/contents/Portfolio";
-import Detail from "@/components/contents/Detail";
 
 export default function HomePage() {
 

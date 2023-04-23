@@ -18,14 +18,9 @@ export default function Layout({ children, backgroundImage, title, subTitle }) {
         setscrollY(window.scrollY);
     }
 
-    let isMounted = false;
+
     useEffect(() => {
-        if (!isMounted) {
-            window.addEventListener("scroll", handleScroll);
-        }
-        return () => {
-            isMounted = true
-        };
+        window.addEventListener("scroll", handleScroll);
     }, []);
 
     return (

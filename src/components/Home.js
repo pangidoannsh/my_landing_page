@@ -7,7 +7,6 @@ import Portfolio from "./contents/Portfolio";
 import ScrollAnimationIcon from "./ScrollAnimationIcon";
 import Footer from "./Footer";
 import BottomBar from "./BottomBar";
-import earthBg from '@/assets/images/EarthRender.png'
 
 export default function Home() {
     const portfolioRef = useRef(null);
@@ -23,14 +22,8 @@ export default function Home() {
         setscrollY(window.scrollY);
     }
 
-    let isMounted = false;
     useEffect(() => {
-        if (!isMounted) {
-            window.addEventListener("scroll", handleScroll);
-        }
-        return () => {
-            isMounted = true
-        };
+        window.addEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -38,7 +31,7 @@ export default function Home() {
             <ScrollAnimationIcon onClick={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })}
                 show={scrollY < 100 && !isOpenMenu} />
             <Navbar isOpenMenu={isOpenMenu} handleClickMenu={handleClickMenu} />
-            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage={earthBg.src} />
+            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage='/assets/earth-render.png' />
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
             <div className={`fixed -z-10 inset-0 duration-500 ${scrollY > 200 ? 'bg-black' : ''}`} />
             <div className="h-[50vh]"></div>
