@@ -6,7 +6,7 @@ const defaultPosition = {
     y: 0
 };
 
-export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
+export default function CommonHero({ isOpenMenu, scrollY, backgroundImage, title, subTitle }) {
     const [position, setPosition] = useState(defaultPosition);
 
     function handleMouseMove(e) {
@@ -20,7 +20,7 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
     }
     return (
         <div onMouseMove={handleMouseMove}>
-            <Transition as={Fragment} show={!isOpenMenu && scrollY < 300}>
+            <Transition as={Fragment} show={!isOpenMenu}>
                 <Transition.Child
                     as='div'
                     enter="ease-out duration-[400ms] delay-500"
@@ -31,13 +31,13 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
                     leaveTo="opacity-0 -translate-y-40"
                     className={`z-10 fixed flex flex-col px-6 justify-center items-center w-screen h-screen text-white `}
                     style={{
-                        translate: scrollY > 50 ? `0 -${scrollY / 1.8}px` : '0 0',
+                        opacity: scrollY <= 150 ? `${(150 - scrollY) / 150}` : '0'
                     }}
                 >
                     <div className="text-center text-5xl font-semibold sm:w-3/4 lg:w-1/2">
-                        The best way to predict the future is to create it.
+                        {title}
                     </div>
-                    <div className="opacity-60 font-roboto font-light">Pangidoan Nsh | Software Dev Enthusiast</div>
+                    <div className="opacity-60 font-roboto font-light">{subTitle}</div>
                 </Transition.Child>
 
             </Transition>

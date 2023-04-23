@@ -1,16 +1,26 @@
 import DataPortfolio from "@/databases/DataPortfolio"
 import Atropos from 'atropos/react';
+import { useRouter } from "next/router";
 
-export default function Portfolio({ refrence }) {
+export default function Portfolio({ refrence, setIsOpenDetail }) {
+    const router = useRouter();
+
+    function handleClick(path) {
+        setIsOpenDetail(true);
+        setTimeout(() => {
+            router.push(`/portfolio/${path}`)
+        }, 500)
+    }
     return (
-        <div className='grid lg:grid-cols-3 gap-24 lg:px-64 mb-12' ref={refrence}>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-24 px-12 sm:px-24 lg:px-64 mb-12' ref={refrence}>
             {DataPortfolio.map(data => (
                 <div className="relative" key={data.id} >
                     <Atropos component="button" rotateXMax={10} rotateYMax={10} highlight={false}
-                        className="card-portfolio-wrapper relative h-[420px]" id={data.slug}>
-                        <div className="partner-logo">
+                        className="card-portfolio-wrapper relative h-[420px]" id={data.slug}
+                        onClick={() => handleClick(data.slug)}>
+                        {/* <div className="partner-logo">
                             <img src={data.partner.logo} alt="" className="w-28" />
-                        </div>
+                        </div> */}
                         <div style={{ backgroundImage: `url('${data.image.src}')` }}
                             className="card-portfolio flex items-end justify-center text-center"
                         >

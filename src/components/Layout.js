@@ -1,19 +1,14 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import NavMenu from "./NavMenu";
 import { Transition } from "@headlessui/react";
-import Hero from "./Hero";
-import Portfolio from "./contents/Portfolio";
 import ScrollAnimationIcon from "./ScrollAnimationIcon";
 import Footer from "./Footer";
 import BottomBar from "./BottomBar";
-import earthBg from '@/assets/images/EarthRender.png'
+import CommonHero from "./CommonHero";
 
-export default function Home() {
-    const portfolioRef = useRef(null);
-
+export default function Layout({ children, backgroundImage, title, subTitle }) {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const [isOpenDetail, setIsOpenDetail] = useState(false);
     const [scrollY, setscrollY] = useState(0);
 
     function handleClickMenu() {
@@ -38,12 +33,13 @@ export default function Home() {
             <ScrollAnimationIcon onClick={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })}
                 show={scrollY < 100 && !isOpenMenu} />
             <Navbar isOpenMenu={isOpenMenu} handleClickMenu={handleClickMenu} />
-            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage={earthBg.src} />
+            <CommonHero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage={backgroundImage}
+                title={title} subTitle={subTitle} />
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
-            <div className={`fixed -z-10 inset-0 duration-500 ${scrollY > 200 ? 'bg-black' : ''}`} />
-            <div className="h-[50vh]"></div>
-            <div className={`relative min-h-screen ${scrollY > 50 ? 'z-10' : '-z-30'}`}>
-                <Transition appear as={Fragment} show={!isOpenMenu && !isOpenDetail}>
+            <div className={`fixed -z-10 inset-0 duration-1000 ${scrollY > 150 ? 'bg-black' : ''}`} />
+            <div className="h-28"></div>
+            <div className={`relative min-h-screen ${scrollY > 150 ? 'z-10' : '-z-30'}`}>
+                <Transition appear as={Fragment} show={!isOpenMenu}>
                     <div className={`pt-52`}>
                         <Transition.Child
                             as='div'
@@ -55,11 +51,11 @@ export default function Home() {
                             leaveTo="opacity-0 -translate-y-40"
                             className={`text-white relative`}
                         >
-                            <Portfolio refrence={portfolioRef} setIsOpenDetail={setIsOpenDetail} />
+                            {children}
                         </Transition.Child>
                     </div>
                 </Transition>
-                <Footer show={!isOpenMenu && !isOpenDetail} />
+                <Footer show={!isOpenMenu} />
             </div>
             <BottomBar show={scrollY > 500 && !isOpenMenu}
                 handleScrollUp={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })} />

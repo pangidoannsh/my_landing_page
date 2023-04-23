@@ -1,5 +1,5 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Transition } from '@headlessui/react'
+import { useState } from 'react'
 
 export default function NavMenu({ isOpen, setIsOpen }) {
     const [isHover, setIsHover] = useState("");
@@ -7,13 +7,18 @@ export default function NavMenu({ isOpen, setIsOpen }) {
     function handleHover(e) {
         setIsHover(e.target.id)
     }
+    function closeMenu(e) {
+        if (isHover === "") {
+            setIsOpen(false)
+        }
+    }
     return (
         <>
             <div className={`fixed inset-0 duration-500 ${isOpen ? 'backdrop-blur-md' : ''}`} />
             <Transition show={isOpen}>
                 <div className={`fixed inset-0 z-20`}>
                     <div className="flex flex-col h-screen items-center justify-center p-4 text-center
-                      text-white text-[54px] font-semibold leading-[60px]">
+                      text-white text-[54px] font-semibold leading-[60px]" onClick={closeMenu}>
                         <Transition.Child
                             as='div'
                             enter="ease-out duration-300 delay-[200ms]"

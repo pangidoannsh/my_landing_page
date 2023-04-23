@@ -10,7 +10,11 @@ const DataPortfolio = [
             name: 'PT. Hadji Kalla',
             logo: '/assets/partner-logo/kalla.png'
         },
-        effort: ['Desain UI', 'Dev Frontend', 'Dev Backend']
+        effort: ['UI Design', 'Dev Frontend', 'Dev Backend'],
+        description: `Projek ini merupakan projek selama saya mengikuti program 
+        Magang Bersertifikat Kampus Merdeka di PT. Hadji Kalla,Makassar. Vehicle 
+        Logistics digunakan untuk mengelola dokumentasi logistik mobil di PT. 
+        Hadji Kalla`
     },
     {
         id: 1,
@@ -22,7 +26,10 @@ const DataPortfolio = [
             name: 'SN Residence Bantaeng',
             logo: '/assets/partner-logo/sn.png'
         },
-        effort: ['Desain UI', 'Dev Frontend']
+        effort: ['UI Design', 'Dev Frontend'],
+        description: `Projek ini merupakan projek yang kami kerjakan di HREV Team, bekerja sama dengan SN Residence Bantaeng
+        untuk membuat web yang dapat menjadi landing page serta mengelola pemesanan unit rumah oleh calon pembeli di SN Residence
+         Bantaeng.`
     },
     {
         id: 2,
@@ -34,7 +41,10 @@ const DataPortfolio = [
             name: 'Badan Pusat Statistik Provinsi Riau',
             logo: '/assets/partner-logo/bps.png'
         },
-        effort: ['Analyst System', 'Desain UI', 'Dev Frontend', 'Dev Backend']
+        effort: ['Analyze System', 'UI Design', 'Dev Frontend', 'Dev Backend'],
+        description: `Projek ini merupakan projek magang sekaligus penelitian saya di Badan Pusat Statistik Provinsi Riau
+        (BPS Riau). Helpdesk IT sendiri merupakan sistem yang dapat mengelola laporan gangguan/permintaan teknologi 
+        yang ada pada BPS Riau agar pelaporan dapat lebih efektif,efisien, dan terdokumentasi.`
     },
     {
         id: 3,
@@ -46,7 +56,9 @@ const DataPortfolio = [
             name: 'HREV Software House',
             logo: '/assets/partner-logo/hrev.svg'
         },
-        effort: ['Dev Frontend']
+        effort: ['Dev Frontend'],
+        description: `Projek ini merupakan pembuatan landing page untuk HREV Team agar memudahkan calon klien dalam melihat profile
+         HREV Team secara detail.`
     },
     {
         id: 4,
@@ -58,7 +70,7 @@ const DataPortfolio = [
             name: 'PT. Hadji Kalla',
             logo: '/assets/partner-logo/kalla.png'
         },
-        effort: ['Desain UI', 'Dev Frontend', 'Dev Backend']
+        effort: ['UI Design', 'Dev Frontend', 'Dev Backend']
     },
 ]
 export default DataPortfolio
