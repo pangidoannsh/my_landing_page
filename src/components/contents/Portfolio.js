@@ -1,17 +1,17 @@
+import { NavigateContext } from "@/context/NavigateProvider";
 import DataPortfolio from "@/databases/DataPortfolio"
 import Atropos from 'atropos/react';
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Portfolio({ refrence, setIsOpenDetail }) {
     const router = useRouter();
+    const { handleNavigate } = useContext(NavigateContext);
     const [isMobile, setIsMobile] = useState(false);
 
     function handleClick(path) {
         setIsOpenDetail(true);
-        setTimeout(() => {
-            router.push(`/portfolio/${path}`)
-        }, 500)
+        handleNavigate(`/portfolio/${path}`)
     }
     useEffect(() => {
         if (window.innerWidth < 400) {

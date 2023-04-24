@@ -48,7 +48,7 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
                         backgroundImage: `url('${backgroundImage}')`,
                         translate: `${position.x}px ${position.y}px`,
                         scale: '1.1',
-                        transition: '160ms'
+                        // transition: '160ms'
                     }}
                 />
             </div>

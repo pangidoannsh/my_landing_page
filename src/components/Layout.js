@@ -6,6 +6,7 @@ import ScrollAnimationIcon from "./ScrollAnimationIcon";
 import Footer from "./Footer";
 import BottomBar from "./BottomBar";
 import CommonHero from "./CommonHero";
+import NavigateProvider from "@/context/NavigateProvider";
 
 export default function Layout({ children, backgroundImage, title, subTitle }) {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -24,7 +25,7 @@ export default function Layout({ children, backgroundImage, title, subTitle }) {
     }, []);
 
     return (
-        <>
+        <NavigateProvider>
             <ScrollAnimationIcon onClick={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })}
                 show={scrollY < 100 && !isOpenMenu} />
             <Navbar isOpenMenu={isOpenMenu} handleClickMenu={handleClickMenu} />
@@ -54,6 +55,6 @@ export default function Layout({ children, backgroundImage, title, subTitle }) {
             </div>
             <BottomBar show={scrollY > 500 && !isOpenMenu}
                 handleScrollUp={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })} />
-        </>
+        </NavigateProvider>
     )
 }

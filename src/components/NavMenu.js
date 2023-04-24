@@ -1,8 +1,10 @@
+import { NavigateContext } from '@/context/NavigateProvider';
 import { Transition } from '@headlessui/react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 export default function NavMenu({ isOpen, setIsOpen }) {
     const [isHover, setIsHover] = useState("");
+    const { isNavigate, handleNavigate } = useContext(NavigateContext);
 
     function handleHover(e) {
         setIsHover(e.target.id)
@@ -15,7 +17,7 @@ export default function NavMenu({ isOpen, setIsOpen }) {
     return (
         <>
             <div className={`fixed inset-0 duration-500 ${isOpen ? 'backdrop-blur-md' : ''}`} />
-            <Transition show={isOpen}>
+            <Transition show={isOpen && !isNavigate}>
                 <div className={`fixed inset-0 z-20`}>
                     <div className="flex flex-col h-screen items-center justify-center p-4 text-center
                       text-white text-[54px] font-semibold leading-[60px]" onClick={closeMenu}>
@@ -30,7 +32,8 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             className={`py-[2px] cursor-pointer duration-150
                                   ${(isHover === "" || isHover === 'portfolio') ? 'opacity-100' : 'opacity-70'}`}
                             id='portfolio' onMouseEnter={handleHover}
-                            onMouseLeave={() => setIsHover("")}>
+                            onMouseLeave={() => setIsHover("")}
+                            onClick={() => handleNavigate('/')}>
                             Portfolio
                         </Transition.Child>
                         <Transition.Child
@@ -44,7 +47,8 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             className={`py-[2px] cursor-pointer duration-150 
                                   ${(isHover === "" || isHover === 'about') ? 'opacity-100' : 'opacity-70'}`}
                             id='about' onMouseEnter={handleHover}
-                            onMouseLeave={() => setIsHover("")}>
+                            onMouseLeave={() => setIsHover("")}
+                            onClick={() => handleNavigate('/about')}>
                             About Me
                         </Transition.Child>
                         <Transition.Child
@@ -58,7 +62,8 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             className={`py-[2px] cursor-pointer duration-150
                                   ${(isHover === "" || isHover === 'contact') ? 'opacity-100' : 'opacity-70'}`}
                             id='contact' onMouseEnter={handleHover}
-                            onMouseLeave={() => setIsHover("")}>
+                            onMouseLeave={() => setIsHover("")}
+                            onClick={() => handleNavigate('/contact')}>
                             Contact
                         </Transition.Child>
                     </div>
