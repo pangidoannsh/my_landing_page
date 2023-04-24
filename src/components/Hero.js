@@ -41,13 +41,14 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
                 </Transition.Child>
 
             </Transition>
-            <div className={`bg-hero-wrapper ${isOpenMenu ? 'scale-110' : ''}`}>
-                <div className={`bg-hero`}
+            <div className={`bg-hero-wrapper duration-1000 ${isOpenMenu ? 'scale-110' : ''}`}>
+                <div className='bg-hero'
                     style={{
                         backgroundImage: `url('${backgroundImage}')`,
                         translate: `${position.x}px ${position.y}px`,
-                        scale: isOpenMenu ? '1.2' : '1.1',
-                        transition: 'scale 1000ms'
+                        scale: '1.1',
+                        transition: '160ms'
+                        // transition: 'scale 1000ms'
                     }}
                 />
             </div>
