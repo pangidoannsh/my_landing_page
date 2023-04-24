@@ -13,8 +13,8 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
         // console.log('scroll');
         if (!isOpenMenu) {
             setPosition({
-                x: (window.innerWidth - (e.clientX * 2)) / 40,
-                y: (window.innerHeight - (e.clientY * 2)) / 40
+                x: (window.innerWidth - (e.clientX * 2)) / 20,
+                y: (window.innerHeight - (e.clientY * 2)) / 20
             })
         }
     }
@@ -41,14 +41,14 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
                 </Transition.Child>
 
             </Transition>
-            <div className={`bg-hero-wrapper duration-1000 ${isOpenMenu ? 'scale-110' : ''}`}>
+            <div className={`bg-hero-wrapper duration-1000 ${isOpenMenu ? 'scale-110' : 'scale-100'}`}>
+
                 <div className='bg-hero'
                     style={{
                         backgroundImage: `url('${backgroundImage}')`,
                         translate: `${position.x}px ${position.y}px`,
                         scale: '1.1',
                         transition: '160ms'
-                        // transition: 'scale 1000ms'
                     }}
                 />
             </div>

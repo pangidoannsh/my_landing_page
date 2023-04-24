@@ -24,7 +24,7 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             enter="ease-out duration-300 delay-[200ms]"
                             enterFrom="opacity-0 translate-y-20"
                             enterTo="opacity-100 translate-y-0"
-                            leave="ease-in duration-300 delay-100"
+                            leave="ease-in duration-200 delay-100"
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0 -translate-y-20"
                             className={`py-[2px] cursor-pointer duration-150
@@ -38,7 +38,7 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             enter="ease-out duration-300 delay-[300ms]"
                             enterFrom="opacity-0 translate-y-20"
                             enterTo="opacity-100 translate-y-0"
-                            leave="ease-in duration-300 delay-200"
+                            leave="ease-in duration-200 delay-200"
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0 -translate-y-20"
                             className={`py-[2px] cursor-pointer duration-150 
@@ -52,7 +52,7 @@ export default function NavMenu({ isOpen, setIsOpen }) {
                             enter="ease-out duration-300 delay-[400ms]"
                             enterFrom="opacity-0 translate-y-20"
                             enterTo="opacity-100 translate-y-0"
-                            leave="ease-in duration-300 delay-300"
+                            leave="ease-in duration-200 delay-300"
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0 -translate-y-20"
                             className={`py-[2px] cursor-pointer duration-150
