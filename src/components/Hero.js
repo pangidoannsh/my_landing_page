@@ -1,24 +1,45 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Transition } from '@headlessui/react';
+import { gsap, Power2 } from 'gsap'
 
 const defaultPosition = {
     x: 0,
     y: 0
 };
+const TL = gsap.timeline({
+    defaults: { duration: 0.5, ease: "none" }
+});
 
 export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
     const [position, setPosition] = useState(defaultPosition);
+    const heroRef = useRef(null);
 
     function handleMouseMove(e) {
         // console.log('scroll');
+        // if (!isOpenMenu) {
+        //     setPosition({
+        //         x: (window.innerWidth - (e.clientX * 2)) / 20,
+        //         y: (window.innerHeight - (e.clientY * 2)) / 20
+        //     })
+        // }
         if (!isOpenMenu) {
-            setPosition({
-                x: (window.innerWidth - (e.clientX * 2)) / 20,
-                y: (window.innerHeight - (e.clientY * 2)) / 20
+            gsap.to(heroRef.current, {
+                duration: 0.3,
+                x: (window.innerWidth - (e.clientX * 2)) / 40,
+                y: (window.innerWidth - (e.clientY * 2)) / 40,
+                ease: 'none',
+                stagger: 0.15
             })
         }
     }
+
+    useEffect(() => {
+        gsap.set(heroRef.current, {
+            x: 0, y: 0, scale: 1.1
+        })
+    }, []);
     return (
+        // <div>
         <div onMouseMove={handleMouseMove}>
             <Transition as={Fragment} show={!isOpenMenu && scrollY < 300}>
                 <Transition.Child
@@ -43,11 +64,11 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage }) {
             </Transition>
             <div className={`bg-hero-wrapper duration-1000 ${isOpenMenu ? 'scale-110' : 'scale-100'}`}>
 
-                <div className='bg-hero'
+                <div className='bg-hero' ref={heroRef}
                     style={{
                         backgroundImage: `url('${backgroundImage}')`,
-                        translate: `${position.x}px ${position.y}px`,
-                        scale: '1.1',
+                        // translate: `${position.x}px ${position.y}px`,
+                        // scale: '1.1',
                         // transition: '160ms'
                     }}
                 />

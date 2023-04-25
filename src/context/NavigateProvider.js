@@ -14,7 +14,8 @@ export default function NavigateProvider({ children }) {
             setIsNavigate(true)
         }
         router.push(path)
-        // setTimeout(() => , 500);
+        // setTimeout(() => {
+        // }, 500);
     }
 
     return <NavigateContext.Provider value={{ isNavigate, handleNavigate }}>
