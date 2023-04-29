@@ -20,7 +20,7 @@ export default function Portfolio({ refrence, setIsOpenDetail }) {
     }, []);
 
     return (
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-24 px-16 sm:px-24 lg:px-64 mb-12' ref={refrence}>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-24 px-16 sm:px-24 lg:px-64 mb-12 ' ref={refrence}>
             {DataPortfolio.map(data => (
                 <div className="relative" key={data.id} >
                     {!isMobile ? (

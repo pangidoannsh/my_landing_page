@@ -34,9 +34,9 @@ export default function Layout({ children, backgroundImage, title, subTitle }) {
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
             <div className={`fixed -z-10 inset-0 duration-1000 ${scrollY > 150 ? 'bg-[#111111]' : ''}`} />
             <div className="h-28"></div>
-            <div className={`relative min-h-screen z-10 ${scrollY > 150 ? 'opacity-100 duration-1000' : 'opacity-0 '}`}>
+            <div className={`relative min-h-screen ${scrollY > 150 ? 'opacity-100 duration-1000' : 'opacity-0 '}`}>
                 <Transition appear as={Fragment} show={!isOpenMenu}>
-                    <div className={`pt-52`}>
+                    <div className={`pt-52 `}>
                         <Transition.Child
                             as='div'
                             enter="ease-out duration-[400ms] delay-500"

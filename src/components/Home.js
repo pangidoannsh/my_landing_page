@@ -37,7 +37,7 @@ export default function Home() {
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
             <div className={`fixed -z-10 inset-0 duration-500 ${scrollY > 200 ? 'bg-black' : ''}`} />
             <div className="h-[50vh]"></div>
-            <div className={`relative min-h-screen ${scrollY > 50 ? 'z-30' : '-z-30'}`}>
+            <div className={`relative min-h-screen ${scrollY > 50 ? 'z-40' : '-z-30'}`}>
                 <Transition appear as={Fragment} show={!isOpenMenu && !isOpenDetail}>
                     <div className={`pt-52`}>
                         <Transition.Child
