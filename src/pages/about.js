@@ -29,9 +29,9 @@ export default function AboutPage() {
                             text-lg py-3 px-6 mb-7'>
                                 Linkedin
                             </a>
-                            <div className='flex flex-col gap-10 mt-10'>
+                            <div className='flex flex-col gap-16 md:gap-10 mt-10'>
                                 {DataPortfolio.map(data => (
-                                    <div className="grid grid-cols-2 gap-8" key={data.id}>
+                                    <div className="grid md:grid-cols-2 gap-8 " key={data.id}>
                                         <div className='flex flex-col items-end gap-1 font-semibold text-sm'>
                                             <div>{data.partner.name}</div>
                                             <div>{data.partner.location}</div>
