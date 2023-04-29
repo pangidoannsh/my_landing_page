@@ -31,7 +31,7 @@ export default function AboutPage() {
                             </a>
                             <div className='flex flex-col gap-10 mt-10'>
                                 {DataPortfolio.map(data => (
-                                    <div className="grid grid-cols-2 gap-8">
+                                    <div className="grid grid-cols-2 gap-8" key={data.id}>
                                         <div className='flex flex-col items-end gap-1 font-semibold text-sm'>
                                             <div>{data.partner.name}</div>
                                             <div>{data.partner.location}</div>
