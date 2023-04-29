@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Transition } from '@headlessui/react';
-import { gsap, Power2 } from 'gsap'
+import { gsap } from 'gsap'
 
 const defaultPosition = {
     x: 0,
