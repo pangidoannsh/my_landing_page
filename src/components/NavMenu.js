@@ -48,7 +48,7 @@ export default function NavMenu({ isOpen, setIsOpen }) {
         <>
 
             <Transition show={isOpen && !isNavigate}>
-                {/* <div className={`fixed inset-0 duration-500 ${isOpen ? 'backdrop-blur-md' : ''}`} /> */}
+                <div className={`fixed inset-0 duration-500 ${isOpen ? 'backdrop-blur-md' : ''}`} />
                 <div className={`fixed inset-0 z-40`}>
                     <div className="flex flex-col h-screen items-center justify-center p-4 text-center
                       text-white text-[54px] font-semibold leading-[60px]" onClick={closeMenu}>

@@ -32,7 +32,8 @@ export default function Home() {
             <ScrollAnimationIcon onClick={() => window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })}
                 show={scrollY < 100 && !isOpenMenu} />
             <Navbar isOpenMenu={isOpenMenu} handleClickMenu={handleClickMenu} />
-            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage='/assets/earth-render.png' />
+            <Hero isOpenMenu={isOpenMenu} scrollY={scrollY} backgroundImage='/assets/earth-render.png'
+                title="Unlocking Creativity through Digital Solutions" subTitle="Pangidoan Nsh | Software Dev Enthusiast" />
             <NavMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
             <div className={`fixed -z-10 inset-0 duration-500 ${scrollY > 200 ? 'bg-black' : ''}`} />
             <div className="h-[50vh]"></div>

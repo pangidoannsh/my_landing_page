@@ -2,6 +2,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
+div::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+.semi-white {
+    color: rgba(255, 255, 255, .6);
+}
+
+.semi-white::selection {
+    color: rgba(255, 255, 255, 1);
+}
+
 .bg-hero-wrapper {
     width: 100%;
     height: 100%;
