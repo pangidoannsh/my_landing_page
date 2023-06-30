@@ -4,7 +4,7 @@ import Head from 'next/head'
 import DataPortfolio from '@/databases/DataPortfolio'
 
 export default function PortfolioDetail(props) {
-    const { image, title, partner, description } = props;
+    const { image, title, partner, description, id } = props;
     const pageTitle = title + " | Pangidoan NSH"
     return (
         <>
@@ -15,7 +15,7 @@ export default function PortfolioDetail(props) {
             </Head>
             <main>
                 <Layout backgroundImage={image.src} title={title} subTitle={partner.name}>
-                    <Detail description={description} />
+                    <Detail description={description} id={id} />
                 </Layout>
             </main>
         </>

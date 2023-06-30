@@ -18,7 +18,7 @@ const DataPortfolio = [
         Hadji Kalla.`,
         startDate: 'Sep 2022',
         endDate: 'Nov 2022',
-        role: 'UI/UX Designer & Fullstack Dev assistant (Intern)'
+        role: 'UI/UX Designer & Fullstack Dev assistant (Intern)',
     },
     {
         id: 1,
@@ -80,7 +80,7 @@ const DataPortfolio = [
     {
         id: 4,
         slug: 'helpdesk-it',
-        title: 'Helpdesk IT App BPS Riau',
+        title: 'Ticketing System Helpdesk IT BPS Riau',
         technologies: ['Next Js', 'Tailwind Css', 'Nest Js', 'TypeORM', 'MySQL', 'Figma'],
         image: { src: '/assets/project/helpdesk-it.jpg' },
         partner: {
