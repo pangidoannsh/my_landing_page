@@ -33,7 +33,7 @@ export default function Hero({ isOpenMenu, scrollY, backgroundImage, title, subT
     }, []);
     return (
         <>
-            <div onMouseMove={handleMouseMove} className='fixed w-screen h-screen z-40' />
+            <div onMouseMove={handleMouseMove} className='fixed w-screen h-screen z-20' />
             <div>
                 <Transition as={Fragment} show={!isOpenMenu}>
                     <Transition.Child
